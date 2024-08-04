@@ -23,11 +23,27 @@
             while (CheckNum(age, out intage));
             User.Age = intage;
 
+
+
             return User;
 
         }
 
-
+        static bool CheckNum(string number, out int conumber)
+        {
+            if (int.TryParse(number, out int intnum))
+            {
+                if (intnum > 0)
+                {
+                    conumber = intnum;
+                    return false;
+                }
+            }
+            {
+                conumber = 0;
+                return true;
+            }
+        }
 
 
         static void Main(string[] args)
